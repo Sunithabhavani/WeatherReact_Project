@@ -1,8 +1,7 @@
 const ForecastList = ({ forecast }) => {
  if (!forecast.length) {
-  return <p className="text-gray-600 mt-6">No forecast available</p>;
+  return <p className=" mt-6 text-gray-700 text-2xl  ">No forecast available</p>;
 }
-
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-5 gap-4 my-6">

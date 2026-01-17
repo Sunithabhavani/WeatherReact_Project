@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import SearchBox from "./components/SearchBox";
 import WeatherCard from "./components/WeatherCard";
 import ForecastList from "./components/ForecastList";
+import bgImg from "./assets/bg3.jpg"
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -31,7 +32,7 @@ function App() {
         desc: today.weather[0].description,
         humidity: today.main.humidity,
         wind: today.wind.speed,
-        airquality : today.main.airquality,
+        pressure: today.main.pressure,
       });
 
 
@@ -46,29 +47,28 @@ function App() {
       setForecast(daily);
     } catch (error) {
       alert("City not found!");
-    }  finally {
-       setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchWeather()
-  }, [])
 
   return (
-    <div className="min-h-screen bg-[#eee] flex flex-col items-center ">
-      <div className="flex w-full items-center justify-between bg-blue-200 px-5 py-4">
-        <h1 className="text-blue-500 text-2xl font-bold ">🌦️ Weather Forecast</h1>
-        <SearchBox onSearch={fetchWeather} />
+    <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${bgImg})` }}>
+      <div className="min-h-screen  flex flex-col items-center ">
+        <div className="flex w-full items-center justify-between bg-blue-200 px-10 py-5 fixed z-90 ">
+          <h1 className="text-blue-500 text-2xl font-bold ">🌤️ ClimateTrack</h1>
+          <SearchBox onSearch={fetchWeather} />
+        </div>
+        {loading ? (
+          <p className="text-black mt-6">Loading...</p>
+        ) : (
+          <>
+            <WeatherCard weather={weather} />
+            <ForecastList forecast={forecast} />
+          </>
+        )}
       </div>
-      {loading ? (
-        <p className="text-black mt-6">Loading...</p>
-      ) : (
-        <>
-          <WeatherCard weather={weather} />
-          <ForecastList forecast={forecast} />
-        </>
-      )}
     </div>
   );
 }

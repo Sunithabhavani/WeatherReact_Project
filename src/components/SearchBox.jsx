@@ -7,7 +7,7 @@ const SearchBox = ({ onSearch }) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const wrapperRef = useRef(null); // ref for outside click
-    
+
     const apiKey = "38f6b59b09717509d37b79ea07a70f07";
 
     
@@ -76,14 +76,14 @@ const SearchBox = ({ onSearch }) => {
                     placeholder="Enter city name..."
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    className="border-b-2 p-2 border-gray-300 w-full outline-none bg-[#eee] rounded-xl"
+                    className="border-b-2 p-2 border-gray-300 w-full outline-none bg-[#eee] rounded-xl text-blue-600 "
                     onFocus={() => {
                         if (suggestions.length > 0) setShowDropdown(true);
                     }}
                 />
                 <button
                     onClick={handleSearch}
-                    className="bg-blue-500 text-white px-4 rounded-lg hover:bg-blue-600"
+                    className="bg-blue-500 text-white px-4 rounded-lg hover:bg-blue-600 cursor-pointer"
                 >
                     Search
                 </button>
