@@ -52,7 +52,7 @@ const WeatherCard = ({ weather }) => {
         : "bg-gradient-to-br from-blue-400 to-indigo-500";
 
     return (
-        <div className={`${bgClasses} w-full max-w-7xl rounded-xl shadow-xl p-6 text-white transition-colors duration-500 mt-6`}>
+        <div className={`${bgClasses} w-full max-w-6xl rounded-xl shadow-xl p-6 text-white transition-colors duration-500 mt-6`}>
             {/* City & Date */}
             <div className="text-center mb-4">
                 <h2 className="text-3xl font-bold capitalize">{weather.city}</h2>
