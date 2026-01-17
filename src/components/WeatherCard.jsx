@@ -65,7 +65,7 @@ const WeatherCard = ({ weather }) => {
             <div className="flex justify-center items-center">
                 <img src={weatherImage} alt={weather.desc} className="w-32 h-32 animate-pulse" />
             </div>
-            <div className=" ms-96">
+            <div className=" ms-80">
             <p className="text-5xl font-bold mt-2 ">{weather.temp}°C</p>
             <p className="capitalize text-lg italic">{weather.desc}</p>
             </div>
